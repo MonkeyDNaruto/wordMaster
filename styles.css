@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding-bottom: 60px; 
+}
+
+.nav-bar {
+    position: relative;
+    top: -10px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 24px;
+}
+
+.info-bar {
+    visibility: hidden;
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.show{
+    visibility: visible;
+}
+
+.spiral {
+    font-size: 30px;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.scoreboard {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.scoreboard-letter {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #333;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.scoreboard-letter:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.correct{
+    background-color: darkgreen;
+    color: white;
+}
+
+.close{
+    background-color: goldenrod;
+    color: white;
+}
+
+.wrong{
+    background-color: #888;
+    color: white;
+}
+
+.invalid{
+    animation: flash 1s;
+}
+
+@keyframes flash{
+    5%{
+        border-color: crimson;
+    }
+
+    100%{
+        border-color: #ccc;
+    }
+}
+
+.footer {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+} 
+
+@keyframes rainbow {
+    0% { 
+        color: #FF0000; 
+    } 
+    14% { 
+        color: #FF7F00; 
+    } 
+    28% { 
+        color: #FFFF00; 
+    } 
+    42% { 
+        color: #00FF00; 
+    } 
+    57% { 
+        color: #0000FF; 
+    } 
+    71% { 
+        color: #4B0082; 
+    } 
+    85% { 
+        color: #8B00FF; 
+    } 
+    100% { 
+        color: #FF0000; 
+    } 
+}
+
+.winner{
+    animation: rainbow 4s linear infinite;
+}
+
+/* Mobile Responsiveness */
+/* @media (max-width: 600px) {
+    .nav-bar {
+        position: relative;
+        top: -83px;
+        
+    }
+    .scoreboard {
+        grid-template-columns: repeat(5, 40px);
+        gap: 8px;
+    }
+
+    .scoreboard-letter {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+} */
