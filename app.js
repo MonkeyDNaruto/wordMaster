@@ -33,6 +33,29 @@ async function init() {
         // TODO validate the word
 
         // TODO do all the marking as "close", "wrong" or "correct"
+        const guessPart = currentGuess.split("");
+        const map = makeMap(word);
+        console.log(map)
+
+        for(let i = 0; i < answerLength; i++) {
+            // mark correct
+            if(guessPart[i] === word[i]) {
+                letters[currentRow * answerLength + i].classList.add("correct");
+                map[guessPart[i]]--;
+            }
+        }
+
+        for(let i = 0; i < answerLength; i++) {
+            if(guessPart[i] === word[i]) {
+                // do nothing we already did 
+            } else if(word.includes(guessPart[i]) && map[guessPart[i]] > 0) {
+                // mark as close
+                letters[currentRow * answerLength + i].classList.add("close");
+                map[guessPart[i]]--;
+            } else {
+                letters[currentRow * answerLength + i].classList.add("wrong")
+            }
+        }
 
         // TODO did they win or loss?
         
@@ -48,8 +71,6 @@ async function init() {
 
     document.addEventListener('keydown', function haldleKeyPress(event) {
         const action = event.key;
-
-        console.log(action);
 
         if(action === 'Enter') {
             commit();
@@ -69,6 +90,19 @@ function setLoading(isLoading) {
 
 function isLetter(letter) {
     return /^[a-zA-Z]$/.test(letter);
+}
+
+function makeMap(array) {
+    const obj = {};
+     for(let i = 0; i < array.length; i++) {
+        let letter = array[i];
+        if(obj[letter]) {
+            obj[letter]++
+        } else {
+            obj[letter] = 1;
+        }
+     }
+     return obj;
 }
 
 init();
