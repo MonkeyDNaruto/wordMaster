@@ -12,27 +12,30 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: #f4f4f4;
-    padding-bottom: 60px; 
+    padding-bottom: 80px;
 }
 
 .nav-bar {
-    position: relative;
-    top: -10px;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     background-color: #333;
     color: white;
     text-align: center;
     padding: 15px 0;
     font-size: 24px;
+    z-index: 100;
 }
 
 .info-bar {
     visibility: hidden;
     margin: 10px 0;
+    margin-top: 110px;
     font-size: 24px;
 }
 
-.show{
+.show {
     visibility: visible;
 }
 
@@ -45,6 +48,7 @@ body {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -76,31 +80,31 @@ body {
     cursor: pointer;
 }
 
-.correct{
+.correct {
     background-color: darkgreen;
     color: white;
 }
 
-.close{
+.close {
     background-color: goldenrod;
     color: white;
 }
 
-.wrong{
+.wrong {
     background-color: #888;
     color: white;
 }
 
-.invalid{
+.invalid {
     animation: flash 1s;
 }
 
-@keyframes flash{
-    5%{
+@keyframes flash {
+    5% {
         border-color: crimson;
     }
 
-    100%{
+    100% {
         border-color: #ccc;
     }
 }
@@ -115,54 +119,63 @@ body {
     bottom: 0;
     left: 0;
     font-size: 14px;
-} 
-
-@keyframes rainbow {
-    0% { 
-        color: #FF0000; 
-    } 
-    14% { 
-        color: #FF7F00; 
-    } 
-    28% { 
-        color: #FFFF00; 
-    } 
-    42% { 
-        color: #00FF00; 
-    } 
-    57% { 
-        color: #0000FF; 
-    } 
-    71% { 
-        color: #4B0082; 
-    } 
-    85% { 
-        color: #8B00FF; 
-    } 
-    100% { 
-        color: #FF0000; 
-    } 
 }
 
-.winner{
+@keyframes rainbow {
+    0% {
+        color: #FF0000;
+    }
+
+    14% {
+        color: #FF7F00;
+    }
+
+    28% {
+        color: #FFFF00;
+    }
+
+    42% {
+        color: #00FF00;
+    }
+
+    57% {
+        color: #0000FF;
+    }
+
+    71% {
+        color: #4B0082;
+    }
+
+    85% {
+        color: #8B00FF;
+    }
+
+    100% {
+        color: #FF0000;
+    }
+}
+
+.winner {
     animation: rainbow 4s linear infinite;
 }
 
 /* Mobile Responsiveness */
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
     .nav-bar {
-        position: relative;
-        top: -83px;
-        
+        top: 0;
+        padding: 10px 0;
     }
+
     .scoreboard {
-        grid-template-columns: repeat(5, 40px);
-        gap: 8px;
+        grid-template-columns: repeat(5, 35px);
+        /* Adjusted for smaller screens */
+        gap: 6px;
     }
 
     .scoreboard-letter {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        /* Slightly smaller font */
     }
-} */
+}
